@@ -1,18 +1,18 @@
 const express = require('express');
-const path = require('path');
+const moment = require('moment');
 
 const app = express();
 
-const HOST = process.env.HOST || '127.0.0.1';
-const PORT = process.env.PORT || 3000;
-
-app.use(express.static(path.join(__dirname, '../client')));
+const HOST = process.env.HOST;
+const PORT = process.env.PORT;
 
 app.get('/health', (req, res) => {
     console.log('Home route');
+    
     res.send({
         success: true,
-        message: 'Welcome to Multi Container App'
+        message: 'Welcome to Multi Container App',
+        timestamp: moment().format()
     });
 });
 
