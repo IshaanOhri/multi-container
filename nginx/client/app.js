@@ -3,7 +3,7 @@ $(document).ready(function () {
     var name = $("#name").val().toUpperCase();
     
     var settings = {
-      "url": "http://localhost:3000/health",
+      "url": `/api/health?name=${name}`,
       "method": "GET",
       "timeout": 0,
     };

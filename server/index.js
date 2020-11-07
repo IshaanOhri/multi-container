@@ -8,10 +8,10 @@ const PORT = process.env.PORT;
 
 app.get('/health', (req, res) => {
     console.log('Home route');
-    
+
     res.send({
         success: true,
-        message: 'Welcome to Multi Container App',
+        message: `Hey ${req.query.name}, the time is ${moment().format('MMMM Do YYYY, h:mm:ss a')}`,
         timestamp: moment().format()
     });
 });
