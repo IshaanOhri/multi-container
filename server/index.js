@@ -1,11 +1,14 @@
 const express = require('express');
+const path = require('path');
 
 const app = express();
 
-const HOST = process.env.HOST;
-const PORT = process.env.PORT;
+const HOST = process.env.HOST || '127.0.0.1';
+const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
+app.use(express.static(path.join(__dirname, '../client')));
+
+app.get('/health', (req, res) => {
     console.log('Home route');
     res.send({
         success: true,
